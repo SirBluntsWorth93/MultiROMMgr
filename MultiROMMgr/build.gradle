@@ -13,11 +13,11 @@ repositories {
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '23.0.2'
+    compileSdkVersion 25
+    buildToolsVersion "26.0.1"
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 25
     }
     buildTypes {
         debug {
@@ -29,15 +29,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
         }
     }
+    dexOptions {
+        preDexLibraries = true
+    }
+    lintOptions {
+        abortOnError false
+	disable 'UnsafeNativeCodeLocation', //UnsafeNativeCodeLocation: Native code outside library directory libsupol and supolicy
+		'GoogleAppIndexingWarning', //GoogleAppIndexingWarning: Missing support for Firebase App Indexing
+		'IconMissingDensityFolder', //IconMissingDensityFolder: Missing density folder
+                'ProtectedPermissions', //ProtectedPermissions: Using system app permission
+                'ExportedReceiver', // easy tasker support need to have a exporte receiver
+                'PluralsCandidate' //the string start at a plural
+    }
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:23.1.1'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-}
-
-android {
-    lintOptions {
-        abortOnError false
-    }
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
 }
