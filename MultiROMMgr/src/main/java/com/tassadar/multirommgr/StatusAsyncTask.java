@@ -160,7 +160,10 @@ public class StatusAsyncTask extends AsyncTask <Void, String, StatusAsyncTask.Re
 
         Manifest man = new Manifest();
         while(true) {
-            if(!dev.hasManifest()) {
+            if(man.downloadAndParse(dev, true)) {
+                res.manifest = man;
+                res.manifest.compareVersions(res.multirom, res.recovery, res.kernel);
+            } else if(!dev.hasManifest()) {
                 // device has no manifest and none was set in developer settings
                 res.code |= RES_NO_MANIFEST;
             } else {

@@ -1,7 +1,7 @@
 {
 	"devices": [{
 		"names": ["quark", "Quark", "quark_lra", "quark_umts", "Moto MAXX", "xt1225", "XT1225", "xt1250", "XT1250", "xt1254", "XT1254"],
-		"manifest_url": "https://raw.githubusercontent.com/bhb27/KernelAdiutor/json/quark_multi.json",
+		"manifest_url": "https://raw.githubusercontent.com/bhb27/scripts/master/etc/manifest.json",
 		"check_gpg": false,
 		"kexec_check_path": "/proc/device-tree/soc/kexec_hardboot-hole",
 		"ubuntu_touch": {
