@@ -30,7 +30,8 @@ android {
 		'IconMissingDensityFolder', //IconMissingDensityFolder: Missing density folder
                 'ProtectedPermissions', //ProtectedPermissions: Using system app permission
                 'ExportedReceiver', // easy tasker support need to have a exporte receiver
-                'PluralsCandidate' //the string start at a plural
+                'PluralsCandidate', //the string start at a plural
+                'MissingTranslation' //MissingTranslation
     }
     productFlavors {
     }

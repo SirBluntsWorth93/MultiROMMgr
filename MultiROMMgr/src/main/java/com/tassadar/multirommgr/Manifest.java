@@ -36,7 +36,7 @@ import java.util.LinkedHashMap;
 
 public class Manifest {
     private static final String TAG = "MROMMgr::Manifest";
-    public static final String DEFAULT_URL = "http://tasemnice.eu/multirom/manifest.json";
+    public static final String DEFAULT_URL = "https://raw.githubusercontent.com/bhb27/KernelAdiutor/json/quark_multi.json";
 
     public class InstallationFile {
         public String type;
