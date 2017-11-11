@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "27.0.1"
 
     defaultConfig {
         applicationId "com.bhb27.multirommgr"
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 01
-        versionName "Quark.01"
+        versionName "Quark.02"
     }
     buildTypes {
         debug {
@@ -43,8 +43,14 @@ android {
         }
     }
 }
+repositories {
+    jcenter()
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+    maven { url "https://maven.google.com" }
+}
 
 dependencies {
-    compile 'com.android.support:support-v4:25.3.1'
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    api 'com.android.support:support-v4:25.3.1'
+    api 'com.android.support:appcompat-v7:25.3.1'
 }

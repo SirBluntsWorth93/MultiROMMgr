@@ -42,7 +42,7 @@ ZIPALIGN_FOLDER=$SDK_FOLDER/build-tools/$TOOLVERSION/zipalign;
 
 # out app folder and out app name
 VERSION=$(grep versionName "$FOLDER"/MultiROMMgr/build.gradle | head -n1 | cut -d\" -f2 | sed 's/\./_/');
-OUT_FOLDER="$FOLDER"/MultiROMMgr/build/outputs/apk;
+OUT_FOLDER="$FOLDER"/MultiROMMgr/build/outputs/apk/release;
 APP_FINAL_NAME=MultiROMMgr.apk;
 
 #making start here...
@@ -65,16 +65,16 @@ fi;
 
 ./gradlew clean
 echo -e "\n The above is just the cleaning build start now\n";
-rm -rf app/build/outputs/apk/**
+rm -rf MultiROMMgr/build/outputs/apk/release/**
 ./gradlew build 2>&1 | tee build_log.txt
 
-if [ ! -e ./MultiROMMgr/build/outputs/apk/MultiROMMgr-release-unsigned.apk ]; then
+if [ ! -e ./MultiROMMgr/build/outputs/apk/release/MultiROMMgr-release-unsigned.apk ]; then
 	echo -e "\nApp not build$\n"
 	exit 1;
 elif [ $SIGN == 1 ]; then
 	jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -storepass "$KEY_PASS" -keystore "$KEY_FOLDER" "$OUT_FOLDER"/MultiROMMgr-release-unsigned.apk Felipe_Leon
 	"$ZIPALIGN_FOLDER" -v 4 "$OUT_FOLDER"/MultiROMMgr-release-unsigned.apk "$OUT_FOLDER"/"$APP_FINAL_NAME"
-	cp "$OUT_FOLDER"/"$APP_FINAL_NAME" "$OUT_FOLDER"/isu"$(date +%s)".apk
+	cp "$OUT_FOLDER"/"$APP_FINAL_NAME" "$OUT_FOLDER"/MultiROMMgr"$(date +%s)".apk
 fi;
 
 END2="$(date)";
